@@ -1,0 +1,44 @@
+// uniforms
+uniform mat4 u_ModelViewMatrix;
+uniform mat4 u_WorldView;
+uniform mat4 u_WorldViewProjection;
+uniform vec3 u_LightPosition;
+uniform vec3 u_LightDirection;
+
+// in
+attribute vec3 in_Position;
+attribute vec3 in_Normal;
+attribute vec2 in_TexCoords;
+
+// out
+varying vec3 v_Normal;
+varying vec3 v_EyeDir;
+varying vec3 v_LightDir;
+varying vec2 v_TexCoords;
+varying vec3 v_Binormal;
+varying vec3 v_Tangent;
+
+vec3 getTangent(vec3 normal) {
+    vec3 c1 = cross(normal, vec3(0.0, 0.0, 1.0));
+    vec3 c2 = cross(normal, vec3(0.0, 1.0, 0.0));
+    return normalize(length(c1)>length(c2) ? c1 : c2);
+}
+
+void main() {
+    mat4 m_ModelWorldView = u_WorldView * u_ModelViewMatrix;
+    // postion
+    vec4 position =  m_ModelWorldView * vec4(in_Position, 1);
+    gl_Position = u_WorldViewProjection * position;
+    // normal
+    v_Normal = ( normalize( m_ModelWorldView * vec4(in_Normal, 0.0) ) ).xyz;
+    // tangent
+    v_Tangent = getTangent(v_Normal);
+    // binormal
+    v_Binormal = normalize(cross(v_Normal, v_Tangent));
+    // lightning
+    v_EyeDir = -position.xyz;
+    // v_LightDir = u_LightPosition - position.xyz;
+    v_LightDir = u_LightDirection;
+    // uv
+    v_TexCoords = in_TexCoords;
+}

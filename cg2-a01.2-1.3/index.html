@@ -1,0 +1,68 @@
+<html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+
+    <!--
+     *
+     * JavaScript / Canvas teaching framwork 
+     * (C)opyright Hartmut Schirmacher, hschirmacher.beuth-hochschule.de 
+     *
+    -->
+
+    <title>CG2 A1: Lines, Curves &amp; Canvas</title>
+
+    <!-- import main module using RequireJS -->
+    <script data-main="main.js" src="../lib/require.js"></script>
+
+    <!-- import style sheet -->
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css">
+
+</head>
+
+<body>
+
+<!-- this element will be used to diplay errors -->
+<pre id="error"></pre>
+
+<!-- centered region with drawing canvas and parameter area -->
+<div align="center">
+
+    <canvas id="drawing_area" width="650" height="500" style="position:relative;">
+        <!-- NOTE: the "position:relative" is required due to the current  
+             implementation of mouse coordinate processing in module "util". -->
+        If you see this text, your browser probably does not
+        support the HTML5 canvas 2D drawing context.
+    </canvas>
+
+    <div id="param_area" style="text-align: left; padding:2em;">
+
+        <h3>Selected Object</h3>
+
+        <p class="bezier_curve_param">Animation <input id="anim_Toggle" class="inputParam" type="checkbox" /></p>
+        <p class="bezier_curve_param">Speed <input id="anim_Speed" class="inputParam" type="number" /></p>
+
+        <p><button id="btnClear" type="button">Clear All</button> <button id="btnRemove" type="button">Remove selected</button></p>
+        <p><button id="btnNewParametric" type="button">New Parametric Curve</button></p>
+        <p><button id="btnNewBezier" type="button">New Bezier Curve</button> <button id="btnSpiral" type="button">Spiral</button></p>
+        <p class="bezier_curve_param"><button id="btnAddPoint" type="button">Add Control Point</button> <button id="btnRemovePoint" type="button">Remove Control Point</button></p>
+
+        <!-- add more here... -->
+        <p>Line width: <input type="number" value="" id="input_width" /></p>
+        <p>Color: <input type="color" value="" id="input_color" /></p>
+        <p class="parametric_curve_param">x(t): <input type="text" value="" id="input_f" style="width: 200px;" /></p>
+        <p class="parametric_curve_param">y(t): <input type="text" value="" id="input_g" style="width: 200px;" /></p>
+        <p class="parametric_curve_param">Min t: <input type="number" value="" id="input_min_t" /></p>
+        <p class="parametric_curve_param">Max t: <input type="number" value="" id="input_max_t" /></p>
+        <p>Segments: <input type="number" value="" id="input_segments" /></p>
+        <p>tick marks: <input type="checkbox" id="input_tick_marks"/></p>
+        <p>draggers: <input type="checkbox" id="input_draggers"/></p>
+        <p>DeCastelJau control polygon: <input type="checkbox" id="input_deCastelJau"/></p>
+    </div>
+
+    <div style="both:clear;">
+    </div>
+
+</div>
+
+</body>
+</html>

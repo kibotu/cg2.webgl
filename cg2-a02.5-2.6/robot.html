@@ -1,0 +1,104 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+
+    <title>CG2 A2: WebGL Robot</title>
+
+    <!-- import main module using RequireJS -->
+    <script data-main="robot.js" src="../lib/require.js"></script>
+
+    <!-- import style sheet -->
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css">
+
+</head>
+
+<body>
+
+<!-- this element will be used to diplay errors -->
+<pre id="error"></pre>
+
+<!-- centered region with drawing canvas and parameter area -->
+<div align="center">
+
+    <!--
+        <div>
+            <button id="btnSomething" type="button"   >Do Something!</button>
+        </div>
+
+        <br>
+    -->
+
+    <canvas id="drawing_area" width="350" height="350" style="padding:1em;position:relative;">
+        <!-- NOTE: the "position:relative" is required due to the current  
+             implementation of mouse coordinate processing in module "util". -->
+        If you see this text, your browser probably does not
+        support HTML5.
+    </canvas>
+
+    <div id="param_area">
+
+        <table id="param_table">
+            <thead>Parameter</thead>
+            <tr class="animParam">
+                <td>Animation:</td>
+                <td>
+                    <input id="anim_Toggle" class="inputParam" type="checkbox" />
+                </td>
+            </tr>
+            <td>Speed:</td>
+            <td>
+                <input id="anim_Speed" class="inputParam" type="number" />
+                °/sec
+            </td>
+            </tr>
+            <!-- please note: more rows will be added automatically by html_controller.js -->
+
+        </table><br />
+        <table id="shortkeys_table">
+            <thead>Controls</thead>
+            <tr>
+                <td>World X-Axe</td>
+                <td><b>x</b> or <b>X</b></td>
+            </tr>
+            <tr>
+                <td>World Y-Axe</td>
+                <td><b>s</b> or <b>S</b></td>
+            </tr>
+            <tr>
+                <td>Neck</td>
+                <td><b>w</b> or <b>W</b></td>
+            </tr>
+            <tr>
+                <td>Right Shoulder</td>
+                <td><b>e</b> or <b>E</b></td>
+            </tr>
+            <tr>
+                <td>Right Elbow</td>
+                <td><b>d</b> or <b>D</b></td>
+            </tr>
+            <tr>
+                <td>Right Wrist</td>
+                <td><b>c</b> or <b>C</b></td>
+            </tr>
+            <tr>
+                <td>Left Shoulder</td>
+                <td><b>q</b> or <b>Q</b></td>
+            </tr>
+            <tr>
+                <td>Left Elbow</td>
+                <td><b>a</b> or <b>A</b></td>
+            </tr>
+            <tr>
+                <td>Left Wrist</td>
+                <td><b>y</b> or <b>Y</b></td>
+            </tr>
+        </table>
+    </div>
+
+    <div style="both:clear;">
+    </div>
+
+</div>
+
+</body>
+</html>
