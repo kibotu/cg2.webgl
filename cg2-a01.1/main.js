@@ -65,7 +65,7 @@ define(["jquery", "gl-matrix", "utils/util",
             }
 
             // create scene with background color
-            var scene = new Scene("#fbf4ed");
+            var scene = new Scene("#fff");
 
             // create SceneController to process and map events
             var sceneController = new SceneController(context, scene);

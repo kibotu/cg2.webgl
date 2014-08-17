@@ -191,7 +191,7 @@ define(["jquery", "gl-matrix", "util", "webgl-debug",
 
                     // clear color and depth buffers
                     //gl.clearColor(0.7, 0.7, 0.7, 1.0);
-					gl.clearColor(0.984, 0.956, 0.929, 1.0);
+					gl.clearColor(1.0,1.0,1.0, 1.0);
                     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 
                     // toggle depth testing

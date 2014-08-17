@@ -147,11 +147,11 @@ define(["jquery", "canvas/primitives/parametric_curve", "canvas/primitives/bezie
                     min_t:parseFloat($("#input_min_t").val()),
                     max_t:parseFloat($("#input_max_t").val()),
                     segments:parseInt($("#input_segments").val()),
-                    showDragger:$("#input_draggers").attr("checked") == "checked" ? true : false };
-
+                    showDragger:$("#input_draggers").attr("checked") == "checked" ? true : false };						
+					
                 var cP = [];
                 for(var i = 0; i < Math.random()* 6+3; ++i) {
-                    cP.push([Math.random()*600,Math.random()*450]);
+                    cP.push([Math.random()*context.canvas.width,Math.random()*context.canvas.height]);
                 }
 
                 // create curve
@@ -225,18 +225,25 @@ define(["jquery", "canvas/primitives/parametric_curve", "canvas/primitives/bezie
              * event handler for "new spiral button".
              */
             $("#btnSpiral").click((function () {
-
-                var controlPoints = [
-                    [392,237],
-                    [402, 320],
-                    [60, 316],
-                    [135, 29],
-                    [359, 35],
-                    [604, 53],
-                    [578, 439],
-                    [283, 435],
-                    [131, 397],
-                    [160, 204]
+			
+			
+				var w = context.canvas.width;
+				var h = context.canvas.height;
+				var resize = function(x,y) {				
+					return [x / 650 * w, y / 500 * h];
+				};
+				
+                 var controlPoints = [
+                    resize(392 ,237),
+                    resize(402, 320),
+                    resize(60, 316),
+                    resize(135, 29),
+                    resize(359, 35),
+                    resize(604, 53),
+                    resize(578, 439),
+                    resize(283, 435),
+                    resize(131, 397),
+                    resize(160, 204)
                 ];
                 addNewBezierCurve(controlPoints);
             }));
@@ -344,17 +351,23 @@ define(["jquery", "canvas/primitives/parametric_curve", "canvas/primitives/bezie
                 // set animation speed
                 animation.customSpeed = parseFloat($("#anim_Speed").attr("value"));
 
+				var w = context.canvas.width;
+				var h = context.canvas.height;
+				var resize = function(x,y) {				
+					return [x / 650 * w, y / 500 * h];
+				};
+				
                 var controlPoints = [
-                    [392,237],
-                    [402, 320],
-                    [60, 316],
-                    [135, 29],
-                    [359, 35],
-                    [604, 53],
-                    [578, 439],
-                    [283, 435],
-                    [131, 397],
-                    [160, 204]
+                    resize(392 ,237),
+                    resize(402, 320),
+                    resize(60, 316),
+                    resize(135, 29),
+                    resize(359, 35),
+                    resize(604, 53),
+                    resize(578, 439),
+                    resize(283, 435),
+                    resize(131, 397),
+                    resize(160, 204)
                 ];
                 addNewBezierCurve(controlPoints);
             };

@@ -14,6 +14,7 @@
  *
  */
 
+precision mediump float;
 
 attribute vec3 vertexPosition;
 attribute vec3 vertexNormal;

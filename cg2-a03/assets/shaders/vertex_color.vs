@@ -13,6 +13,7 @@
  *
  */
 
+precision mediump float;
 
 attribute vec3 vertexPosition;
 attribute vec4 vertexColor;

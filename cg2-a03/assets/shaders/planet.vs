@@ -13,7 +13,7 @@
  * needs of the pipeline.
  *
  */
-
+precision mediump float;
 // in
 attribute vec3 vertexPosition;
 attribute vec3 vertexNormal;

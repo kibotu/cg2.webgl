@@ -1,7 +1,7 @@
 /* default: white background, sans serif font */
 body {
-    font-family: Arial, Helvetica,sans-serif;
-    background-color: #fbf4ed;
+    font-family: Arial, Helvetica;
+	//background-color: #fbf4ed;
 }
 
 /* region to display an error */
